@@ -1,0 +1,115 @@
+@charset "utf-8";
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border:0 none;
+    margin:0;
+    padding:0;
+	list-style-type:none;
+    vertical-align:baseline;
+	background: transparent;
+}
+/*elements*/
+div,a,input,button,select,textarea{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-tap-highlight-color:transparent;font-family:"Arial","Microsoft YaHei";}
+input,select,textarea{outline:0;font-size:1.3rem;border:0 none;margin:0;padding:0;-webkit-appearance:none;border-radius:0; color:#aaaaaa; font-family:Microsoft yahei;}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block}
+a{text-decoration:none;font-family:"Arial","Microsoft YaHei";}
+body{font-family:"Arial","Microsoft YaHei";-webkit-text-size-adjust:none;-webkit-user-select:none;font-size:14px;color:#333;}
+table{border-collapse:collapse;border-spacing:0}
+img{border:0;vertical-align:middle;}
+i,em{ font-style:normal;}
+.red{ color:#ef534e !important;}
+.green{ color:green !important;}
+.clearfix:after{content:'\0020';display:block;height:0;clear:both;}
+.hide{ display:none;}
+html,body{ height:100%; overflow:hidden;}
+.kGamebg{width:100%; height:100%; background:url(../images/k_bg.jpg) no-repeat; background-size:cover; max-width:768px; margin:0 auto; overflow:hidden; position:relative;}
+.K_logo{ width:3.4rem; position:absolute; top:1rem; left:1.2rem;}
+.K_logo img{ width:100%;}
+.kGame_start{ width:24.8rem; position:absolute; bottom:4.6rem; left:50%; margin-left:-12.4rem; cursor:pointer; animation:kGame_start 1s ease-in infinite;}
+.kGame_start img{ width:100%;}
+@keyframes kGame_start{
+	0%{ transform:scale(0.98,0.98)}
+	50%{ transform:scale(1,1)}
+	100%{ transform:scale(0.98,0.98)}
+}
+.wx_box{ width:100%; max-width:768px; height:100%; min-height:480px; margin:0 auto; overflow:hidden; background:#FEEFD0 url(../images/wx_bg.jpg) no-repeat bottom; background-size:100% auto;}
+.chartgame{ width:100%; position:relative; background:#2C2A2B;}
+.kline_canvas{ position:relative; z-index:99;}
+.bar_bg{ overflow:hidden; position:absolute; top:0; left:0; z-index:2; white-space:nowrap;}
+.bar_bg i{ display:block; float:left; height:19rem;}
+.barRedbg{ background:rgba(255,0,0,0.2);}
+.barGreenbg{ background:rgba(138,238,103,0.2);}
+.chartTips{ height:2.4rem; line-height:2.4rem; background:#1A1A1A; width:100%; font-size:1.2rem; color:#fcc031;  padding:0 1rem; box-sizing:border-box; overflow:hidden; z-index:9;}
+.chartTips span{ float:left;}
+.chartTips b{ float:right; font-weight:400;}
+.chartIncome{ position:absolute;top:1rem; right:1rem; color:#eeb52f; font-size:1.6rem; height:3rem; line-height:3rem; overflow:hidden; z-index:999;}
+.chartIncome i{ display:block; animation:chartIncome 2s linear; animation-fill-mode:forwards;}
+@keyframes chartIncome{
+	0%{ transform:translateY(100%);}
+	10%{transform:translateY(0);}
+	80%{transform:translateY(0);}
+	100%{ transform:translateY(-100%);}		
+}
+/**操作说明**/
+.explain{ width:23rem; margin:0 auto;}
+.explain h3{ height:2.3rem; text-align:center; padding:3.2rem 0 2.6rem 0;}
+.explain h3 img{ height:2.3rem;}
+.explain_font{ text-align:justify; font-size:1.4rem; line-height:2rem; color:#4e3833; height:13rem;}
+.explain_start { text-align:center; cursor:pointer;}
+.explain_start img{ height:6.6rem;}
+/**收益**/
+.earnings{ overflow:hidden; display:none;}
+.earnings_top{ height:6.8rem; border:2px solid #D6B871; width:28.4rem; margin:3.5rem auto 0 auto; background:#fff; border-radius:6.8rem; overflow:hidden; position:relative;}
+.earnings_top li{ float:left; width:50%; text-align:center;padding:1.15rem 0; height:4.5rem;}
+.earnings_top:after{ content:""; width:1px; height:4.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#4e3833;}
+.earnings_top li span{ display:block; font-size:1.5rem; line-height:3rem;}
+.earnings_top li span em{ font-size:2.4rem; margin-right:0.2rem;}
+.earnings_top li b{ display:block; font-size:1.2rem; font-weight:400; line-height:1.5rem; position:relative; top:-0.4rem;}
+.add_earnings{ text-align:center; font-size:1.5rem; color:#4e3833; line-height:4.5rem;}
+.add_earnings span{ font-size:2.4rem; position:relative; top:0.3rem;}
+/**开始游戏**/
+.chartBuy{ overflow:hidden; text-align:center; padding:1.6rem 0;}
+.chartBuy span{ display:inline-block; width:7rem; text-align:center; height:7rem; color:#fff; background-size:cover !important; overflow:hidden; cursor:pointer;}
+.chartBuy span img{ width:4rem; margin-top:2.3rem;}
+.chartBuy01{ background:url(../images/chartBuy01.png) no-repeat; margin-right:6rem;}
+.chartBuy02{ background:url(../images/chartBuy02.png) no-repeat;}
+.cBpointer{ pointer-events:none; background:url(../images/chartBuy03.png) no-repeat !important;}
+/**游戏结束**/
+.black_bg{ height:100%; width:100%; background:rgba(0,0,0,0.6); position:fixed; top:0; z-index:99; display:none;}
+.gameOver_green{ color:#8dee67;}
+.gameOver_yellow{ color:#FFD115;}
+.gameOver{ height:100%; width:100%;position:fixed; top:0; z-index:999; padding:3.4rem 1.2rem 2.5rem 1.2rem; box-sizing:border-box;display:none;}
+.gameOver_close{ position:absolute; right:1rem; top:0.6rem; cursor:pointer;}
+.gameOver_close img{ width:2.2rem;}
+.gameOver_content{ background:#EE4236; height:100%; margin:0 auto; border-radius:1rem; position:relative;} 
+.gameOver_content h3{ position:absolute; padding:0 1.5rem; top:-1.1rem;}
+.gameOver_content h3 img{ width:100%;}
+.gameOver_font{ font-size:1.4rem; text-align:center; color:#ffffff; margin:0 1.2rem; border-bottom:1px dashed #fff; height:3rem; padding-top:6.4rem; line-height:2.6rem;}
+.gameOver_font span{ font-size:2.2rem;}
+.gameOver_content dl{ margin:0 1.2rem; padding:0 1rem;color:#fff; border-bottom:1px dashed #fff;}
+.gameOver_content dl dt{ height:4rem; font-size:1.4rem; text-align:center; line-height:2rem; padding:1.5rem 0; overflow:hidden;}
+.gameOver_content dl dt span{ display:block;}
+.gameOver_content dl dd{ font-size:1.2rem;}
+.gameOver_content dl dd img{width:100%; margin-bottom:0.6rem;}
+.gameOver_content dl dd p{ text-align:justify; line-height:2rem; height:8rem; overflow:hidden; margin-bottom:0.8rem;}
+.gameOver_again{ margin:2.4rem 1.2rem 2rem 1.2rem; padding:0 0.6rem; cursor:pointer;}
+.gameOver_again img{ width:100%; height:100%;}
+.gameOver_share{ margin:0 1.2rem; padding:0 0.6rem;cursor:pointer;}
+.gameOver_share img{ width:100%;height:100%;}
+.share{ position:absolute;top:0;z-index:999; display:none;}
+.share img{ width:100%;}
+
+@media screen and (max-height: 500px) {
+.kGamebg{width:100%; height:100%; background:url(../images/k_bg.jpg) no-repeat center -3rem; background-size:cover; }	
+.wx_box{background: #FEEFD0 url(../images/wx_bg.jpg) no-repeat center -3.3rem;}
+.kGame_start{bottom:2rem;}    
+.earnings_top{ margin-top:2.5rem;}
+.chartBuy{ padding:0.6rem;}
+.explain h3{padding:2.2rem 0 1.6rem 0;}
+.explain_start img{ height:5.6rem;}
+.gameOver_again{ float:left; width:45%; margin:2rem 0 0 0; height:2.6rem;}
+.gameOver_share{ float:left; width:45%; margin:2rem 0 0 0; height:2.6rem;}
+}
+@media screen and (min-height: 768px){
+	html,body{ height:1366px; overflow:auto;}
+}

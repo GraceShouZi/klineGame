@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/basic.css">
+<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="js/gamekline.min.js"></script>
+<script type="text/javascript" src="js/resize.js"></script>
+<title>K线图</title>
+</head>
+<body>
+<script type="text/javascript">
+var winWidth = $(window).width() > 768 ? 768 : $(window).width();
+var fontSize = parseFloat($("html").css("font-size"));
+var winHeight =fontSize*19;
+var PIXEL_RATIO = (function () {
+    var ctx = document.createElement("canvas").getContext("2d"),
+        dpr = window.devicePixelRatio || 1,
+        bsr = ctx.webkitBackingStorePixelRatio ||
+              ctx.mozBackingStorePixelRatio ||
+              ctx.msBackingStorePixelRatio ||
+              ctx.oBackingStorePixelRatio ||
+              ctx.backingStorePixelRatio || 1;
+        return dpr/bsr;
+})();
+createHiDPICanvas = function(w, h, ratio) {
+    if (!ratio) { ratio = PIXEL_RATIO; }
+    var can = document.createElement("canvas");
+    can.id = 'canvas';
+    can.width = w * ratio;
+    can.height = h * ratio;
+    can.style.width = w + "px";
+    can.style.height = h + "px";
+    can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+    return can;
+};
+</script>
+<div class="wx_box">
+  <!--游戏显示-->
+  <div class="chartgame">
+    <div id="canvasBox" class="kline_canvas"  style="overflow:hidden; height:19rem; box-sizing:border-box;">
+		<script type="text/javascript">
+                var myCanvas = createHiDPICanvas(winWidth, winHeight);
+                document.getElementById('canvasBox').appendChild(myCanvas);
+        </script>
+    </div>
+    <div class="bar_bg"></div>
+    <div class="chartTips">
+    	<span>日增幅：<i>0.8%</i></span>
+        <b><i class="chartTips_times">60</i>s</b>
+    </div>
+    <div class="chartIncome"></div>
+  </div>  
+  <!--游戏显示 end-->
+  <!--操作说明-->
+  <div class="explain">
+  	<h3><img src="images/wx_font01.png" alt="操作说明"></h3>
+    <p class="explain_font">一哥牛股赠送您5000元起始资金用于模拟操盘，在60秒内根据逐步展现的K线，点击买卖按钮进行操作。时间结束后，显示您本次模拟操盘的收益情况。</p>
+    <p class="explain_start"><span><img src="images/explain_start.png" alt="开始挑战"></span></p>
+  </div>
+  <!--操作说明 end-->
+  <!--买入卖出-->
+  <div class="earnings">
+      <ul class="earnings_top">
+      	<li>
+        	<span><em>5000.00</em>元</span>
+            <b>初始资金</b>
+        </li>
+        <li>
+        	<span><em class="red">5000.00</em>元</span>
+            <b>实际资金</b>
+        </li>
+      </ul>
+      <p class="add_earnings">累计增幅：<span>+6.9%</span></p>
+      <div class="chartBuy">
+            <span class="chartBuy01 cBpointer"><img src="images/buying.png" alt="买入"></span>
+            <span class="chartBuy02 cBpointer"><img src="images/selling.png" alt="买出"></span>
+      </div>
+  </div>
+  <!--操作说明-->
+  <!--游戏结束-->
+  <div class="gameOver">
+  	<div class="gameOver_content">
+    	<h3><img src="images/gameOver_top.png"></h3>
+        <p class="gameOver_font">跟着感觉走不学习，损失<span class="gameOver_green">236元</span></p>
+        <dl>
+        	<dt><span>本支股票取自：葵花药业（002737）</span><span>时间段：20160315-20161215</span></dt>
+            <dd>
+                <img src="images/gameOver_img.jpg">
+            	<p>K线包含关系是需要 处理的，一个大K线后面包含多根K线，应该 先处理包含关系的，如果处理完包含关系 还和后面有包含关系，继续处理直到处理 完没有包含关系即可。</p>
+            </dd>
+        </dl>
+        <p class="gameOver_again"><img src="images/gameOver_again.png" alt="再来一次"></p>
+        <p class="gameOver_share"><img src="images/gameOver_share.png" alt="我要分享"></p>
+    </div>
+    <span class="gameOver_close"><img src="images/gameOver_close.png" alt="关闭"></span>
+  </div>
+  <div class="share"><img src="images/share_bg.png" alt="分享到朋友圈"></div>
+  <div class="black_bg"></div>
+  <!--游戏结束 end-->
+</div>
+<script type="text/javascript" src="js/gamechartKline.js"></script>
+<script type="text/javascript" src="js/data/k_data.js"></script>
+</body>
+</html>
